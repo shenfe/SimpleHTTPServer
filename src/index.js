@@ -26,6 +26,8 @@ const server = (conf, port) => {
     }
 
     port && app.listen(port);
+    
+    return app;
 };
 
 module.exports = server;
