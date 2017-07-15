@@ -1,5 +1,5 @@
 const path = require('path');
-var open = require('open');
+const open = require('open');
 
 const server = require(path.resolve(process.cwd(), 'src/index.js'));
 
