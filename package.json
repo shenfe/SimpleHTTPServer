@@ -4,6 +4,7 @@
   },
   "devDependencies": {
     "express": "^4.15.3",
-    "express-http-proxy": "^1.0.5"
+    "express-http-proxy": "^1.0.5",
+    "open": "0.0.5"
   }
 }

@@ -1,18 +1,28 @@
 const path = require('path');
+var open = require('open');
 
 const server = require(path.resolve(process.cwd(), 'src/index.js'));
 
+let port1 = 3000;
 let app1 = server([
     {
-        to: 'src'
-    },
-    {
-        from: 'test-scripts',
         to: 'test'
     },
     {
-        from: '',
-        to: 'zhihu.com',
-        option: () => {}
+        from: '/app1-assets',
+        to: 'test/app1'
+    },
+    {
+        from: '/search',
+        to: 'developer.github.com',
+        option: {
+            https: true,
+            proxyReqOptDecorator: function (proxyReqOpts, srcReq) {
+                proxyReqOpts.headers['Content-Type'] = 'application/json';
+                return proxyReqOpts;
+            }
+        }
     }
-], 80);
+], port1);
+
+open(`http://127.0.0.1:${port1}`);

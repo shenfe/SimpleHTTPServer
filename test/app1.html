@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>test1</title>
+        <link href="/app1.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div><img src="/app1-assets/1.jpg"></div>
+        <script type="text/javascript">
+            fetch('/search/search-index.json')
+                .then(res => res.json())
+                .then(data => console.log(data));
+        </script>
+    </body>
+</html>
