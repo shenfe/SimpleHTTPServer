@@ -2,9 +2,11 @@
   "scripts": {
     "test": "node test/index.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "express": "^4.15.3",
-    "express-http-proxy": "^1.0.5",
+    "express-http-proxy": "^1.0.5"
+  },
+  "devDependencies": {
     "open": "0.0.5"
   },
   "name": "jimple-http-server",
