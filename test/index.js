@@ -25,14 +25,4 @@ let app1 = server([
     }
 ], port1);
 
-process.on('exit', function () {
-    app1.close();
-});
-process.on('SIGTERM', function () {
-    app1.close();
-});
-process.on('uncaughtException', function () {
-    app1.close();
-});
-
 open(`http://127.0.0.1:${port1}`);
