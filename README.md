@@ -4,8 +4,8 @@ A SimpleHTTPServer module for Nodejs, wrapping `express` and `express-http-proxy
 ## Usage
 ```js
 const path = require('path');
-const server = require('path/to/simplehttpserver'));
-server([
+const server = require('jimple-http-server'));
+let myServer = server([
     {
         to: 'dist/page'
     },
