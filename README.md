@@ -1,7 +1,13 @@
 # SimpleHTTPServer
 A SimpleHTTPServer module for Nodejs, wrapping `express` and `express-http-proxy`.
 
+## Installation
+```js
+npm install --save-dev jimple-http-server
+```
+
 ## Usage
+Use Nodejs API as below:
 ```js
 const path = require('path');
 const server = require('jimple-http-server'));
