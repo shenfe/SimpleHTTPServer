@@ -1,7 +1,7 @@
 const path = require('path');
 const open = require('open');
 
-const server = require(path.resolve(process.cwd(), 'src/index.js'));
+const server = require('../src/index.js');
 
 let port1 = 3000;
 let app1 = server([
@@ -14,14 +14,7 @@ let app1 = server([
     },
     {
         from: '/search',
-        to: 'developer.github.com',
-        option: {
-            https: true,
-            proxyReqOptDecorator: function (proxyReqOpts, srcReq) {
-                proxyReqOpts.headers['Content-Type'] = 'application/json';
-                return proxyReqOpts;
-            }
-        }
+        to: 'developer.github.com'
     }
 ], port1);
 

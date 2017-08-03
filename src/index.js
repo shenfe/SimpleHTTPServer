@@ -3,7 +3,6 @@ const path = require('path');
 const express = require('express');
 const serveIndex = require('serve-index');
 const serveStatic = require('serve-static');
-const contentDisposition = require('content-disposition');
 
 const serveIndexOption = {
     icons: true
@@ -15,9 +14,6 @@ const serveStaticOption = {
         console.log('file type:', type);
         if (type.startsWith('image/')) {
             res.setHeader('Access-Control-Allow-Origin', '*');
-            res.setHeader('Content-Disposition', contentDisposition(path, {
-                type: 'inline'
-            }));
         }
     }
 };
