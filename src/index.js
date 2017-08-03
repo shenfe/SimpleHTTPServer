@@ -1,5 +1,26 @@
+const fs = require('fs');
 const path = require('path');
 const express = require('express');
+const serveIndex = require('serve-index');
+const serveStatic = require('serve-static');
+const contentDisposition = require('content-disposition');
+
+const serveIndexOption = {
+    icons: true
+};
+const serveStaticOption = {
+    setHeaders: function (res, path) {
+        console.log('file path:', path);
+        let type = serveStatic.mime.lookup(path);
+        console.log('file type:', type);
+        if (type.startsWith('image/')) {
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader('Content-Disposition', contentDisposition(path, {
+                type: 'inline'
+            }));
+        }
+    }
+};
 
 /**
  * [express-http-proxy](https://github.com/villadora/express-http-proxy)
@@ -13,15 +34,25 @@ const server = (conf, port) => {
         return typeof v === 'object' || v.indexOf('.') > -1 || v.indexOf(':') > -1;
     };
 
-    for (let { from, to, option } of conf) {
+    for (let { from, to, option, withoutRoute } of conf) {
         if (isProxy(to)) {
-            app.use(from, proxy(to, option));
+            option = option || {};
+            let defaultOpt = {
+                proxyReqPathResolver: withoutRoute ? undefined : function (req) {
+                    return from + require('url').parse(req.url).path;
+                },
+                proxyReqOptDecorator: function (proxyReqOpts, srcReq) {
+                    proxyReqOpts.headers['Content-Type'] = 'application/json';
+                    return proxyReqOpts;
+                }
+            };
+            app.use(from, proxy(to, Object.assign(defaultOpt, option)));
         } else {
-            if (!from || from === '/') {
-                app.use(express.static(path.resolve(process.cwd(), to)));
-            } else {
-                app.use(from, express.static(path.resolve(process.cwd(), to)));
-            }
+            let urlPath = (!from || from === '/') ? '/' : from;
+            let targetPath = path.resolve(process.cwd(), to);
+
+            app.use(urlPath, serveIndex(targetPath, serveIndexOption));
+            app.use(urlPath, serveStatic(targetPath, serveStaticOption));
         }
     }
 

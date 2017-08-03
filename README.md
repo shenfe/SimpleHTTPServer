@@ -20,21 +20,16 @@ let myServer = server([
         to: 'dist/static'
     },
     {
-        from: '/search',
-        to: 'developer.github.com',
-        option: {
-            https: true,
-            proxyReqOptDecorator: function (proxyReqOpts, srcReq) {
-                proxyReqOpts.headers['Content-Type'] = 'application/json';
-                return proxyReqOpts;
-            }
-        }
+        from: '/ajax',
+        to: 'domain.com'
     }
 ], 3000);
 ```
 
 ## More
 * [express-http-proxy](https://github.com/villadora/express-http-proxy)
+* [serve-static](https://github.com/expressjs/serve-static)
+* [serve-index](https://github.com/expressjs/serve-index)
 
 ## License
 [MIT](http://opensource.org/licenses/MIT)
