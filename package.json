@@ -1,39 +1,39 @@
 {
-  "scripts": {
-    "test": "node test/index.js"
-  },
-  "dependencies": {
-    "express": "^4.15.3",
-    "express-http-proxy": "^1.0.5",
-    "serve-index": "^1.9.0",
-    "serve-static": "^1.12.3"
-  },
-  "devDependencies": {
-    "open": "0.0.5"
-  },
-  "name": "jimple-http-server",
-  "description": "A SimpleHTTPServer module for Nodejs, wrapping `express` and `express-http-proxy`.",
-  "version": "0.1.3",
-  "main": "src/index.js",
-  "directories": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shenfe/SimpleHTTPServer.git"
-  },
-  "keywords": [
-    "server",
-    "express",
-    "proxy",
-    "static",
-    "files",
-    "development"
-  ],
-  "author": "hengwu",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/shenfe/SimpleHTTPServer/issues"
-  },
-  "homepage": "https://github.com/shenfe/SimpleHTTPServer#readme"
+    "scripts": {
+        "test": "node test/index.js"
+    },
+    "dependencies": {
+        "express": "^4.15.3",
+        "express-http-proxy": "^1.0.5",
+        "serve-index": "^1.9.0",
+        "serve-static": "^1.12.3"
+    },
+    "devDependencies": {
+        "open": "0.0.5"
+    },
+    "name": "jimple-http-server",
+    "description": "A SimpleHTTPServer module for Nodejs, wrapping `express` and `express-http-proxy`.",
+    "version": "0.1.4",
+    "main": "src/index.js",
+    "directories": {
+        "test": "test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shenfe/SimpleHTTPServer.git"
+    },
+    "keywords": [
+        "server",
+        "express",
+        "proxy",
+        "static",
+        "files",
+        "development"
+    ],
+    "author": "hengwu",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/shenfe/SimpleHTTPServer/issues"
+    },
+    "homepage": "https://github.com/shenfe/SimpleHTTPServer#readme"
 }
