@@ -9,7 +9,7 @@ npm install --save-dev jimple-http-server
 ## Usage
 Use Nodejs API as below:
 ```js
-const server = require('jimple-http-server'));
+const server = require('jimple-http-server');
 let myServer = server([
     {
         to: 'dist/page'
